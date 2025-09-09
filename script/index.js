@@ -38,7 +38,7 @@ const loadCategories = () => {
 };
 
 const loadCardDetails = (id) => {
-    loading(true);
+  loading(true);
 
   const url = `https://openapi.programming-hero.com/api/plant/${id}`;
 
@@ -92,18 +92,14 @@ const displayCard = (details) => {
   });
   loading(false);
 };
-// onclick="my_modal_5.showModal()"
 
 const loadAllPlants = () => {
-    loading(true);
+  loading(true);
 
   fetch("https://openapi.programming-hero.com/api/plants")
     .then((res) => res.json())
     .then((data) => {
       removeActiveBtn();
-      // const activeButton = document.getElementById("trees-categories");
-      // console.log(activeButton); // Add this line
-      // activeButton.classList.add("active");
       displayAllPlants(data.plants);
     });
 };
@@ -112,35 +108,18 @@ const loadAllPlants = () => {
 }
 
 const removeCart = (price, id) => {
-  // console.log(id);
   const deleteBtn = document.getElementById(`delete-btn-${id}`);
 
   const a = deleteBtn.parentNode.parentNode.parentNode;
   // console.log(a);
 
   a.innerHTML = "";
-  // console.log(price);
+
   let priceAll = parseInt(document.getElementById("total-price").innerText);
-  // console.log(priceAll);
 
   priceAll = priceAll - price;
   document.getElementById("total-price").innerText = priceAll;
-  // console.log(deleteBtn);
-
-  // console.log(a);
 };
-// console.log(document.getElementById("trees-categories"));
-// let addToCartBtn = (a) => {
-//   // const btn = document.getElementById(id);
-//   console.log(a);
-// };
-
-// for(const btn of addToCartBtn){
-//   console.log(btn);
-// }
-// addToCartBtn.forEach(arr => {
-//   console.log(arr);
-// })
 
 const yourCart = (title, price, id) => {
   // console.log(title, price);
