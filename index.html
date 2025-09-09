@@ -174,7 +174,12 @@
             </div> -->
         </section>
         <!-- Open the modal using ID.showModal() method -->
-
+        <div
+          id="spaning"
+          class="hidden py-16 text-center col-span-full bg-slate-100 rounded-xl"
+        >
+          <span class="loading loading-spinner text-primary"></span>
+        </div>
         <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
           <div class="modal-box">
             <div id="modal-container" class="">
@@ -294,14 +299,14 @@
               class="bg-white py-2.5 px-3 border-none rounded-lg text-opacity-[0.5] w-full"
             >
               <option disabled selected>Number of Trees</option>
-              <option>AB Bank</option>
-              <option>UCB Bank</option>
-              <option>Islami Bank</option>
+              <option>1 Tree - $5</option>
+              <option>5 Tree - $25</option>
+              <option>10 Tree - $50</option>
             </select>
           </div>
           <div class="">
             <button
-              class="btn font-medium text-[#15803D] bg-[#FACC15] py-2.5 px-3 border-none rounded-lg text-opacity-[0.5] w-full shadow-none"
+              class="btn font-medium text-[#15803D] bg-[#FACC15] py-2.5 px-3 border-none rounded-full text-opacity-[0.5] w-full shadow-none"
             >
               <a href="" class="">Donate Now</a>
             </button>

@@ -5,7 +5,18 @@ const removeActiveBtn = () => {
   });
 };
 
+const loading = (status) => {
+  if (status == true) {
+    document.getElementById("spaning").classList.remove("hidden");
+    document.getElementById("card-container").classList.add("hidden");
+  } else {
+    document.getElementById("card-container").classList.remove("hidden");
+    document.getElementById("spaning").classList.add("hidden");
+  }
+};
+
 const LoadCategoriesId = (id) => {
+  loading(true);
   fetch(`https://openapi.programming-hero.com/api/category/${id}`)
     .then((res) => res.json())
     .then((data) => {
@@ -27,6 +38,8 @@ const loadCategories = () => {
 };
 
 const loadCardDetails = (id) => {
+    loading(true);
+
   const url = `https://openapi.programming-hero.com/api/plant/${id}`;
 
   fetch(url)
@@ -77,10 +90,13 @@ const displayCard = (details) => {
         `;
     cardContainer.append(card);
   });
+  loading(false);
 };
 // onclick="my_modal_5.showModal()"
 
 const loadAllPlants = () => {
+    loading(true);
+
   fetch("https://openapi.programming-hero.com/api/plants")
     .then((res) => res.json())
     .then((data) => {
@@ -102,15 +118,15 @@ const removeCart = (price, id) => {
   const a = deleteBtn.parentNode.parentNode.parentNode;
   // console.log(a);
 
-  a.innerHTML = ''
+  a.innerHTML = "";
   // console.log(price);
   let priceAll = parseInt(document.getElementById("total-price").innerText);
   // console.log(priceAll);
-  
+
   priceAll = priceAll - price;
   document.getElementById("total-price").innerText = priceAll;
   // console.log(deleteBtn);
-  
+
   // console.log(a);
 };
 // console.log(document.getElementById("trees-categories"));
@@ -126,9 +142,9 @@ const removeCart = (price, id) => {
 //   console.log(arr);
 // })
 
-const yourCart = (title, price,id) => {
+const yourCart = (title, price, id) => {
   // console.log(title, price);
-  alert(`${title}`+ 'has been added to the cart');
+  alert(`${title}` + "has been added to the cart");
   const yourCartContainer = document.getElementById("your-cart-container");
   const cartDiv = document.createElement("div");
   cartDiv.innerHTML = `
@@ -190,6 +206,7 @@ const displayAllPlants = (plants) => {
     `;
     cardContainer.append(allTreeCard);
   });
+  loading(false);
 };
 
 // onclick="addToCartBtn(${plant.name})"
